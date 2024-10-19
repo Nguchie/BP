@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 import 'set_reminders_page.dart';
 import 'my_records_page.dart';
 import 'recommendations_page.dart';
+import 'add_records_page.dart'; // Import the AddRecordsPage
 
-class DashboardPage extends StatelessWidget {
+class DashboardPage extends StatefulWidget {
+  @override
+  _DashboardPageState createState() => _DashboardPageState();
+}
+
+class _DashboardPageState extends State<DashboardPage> {
+  final List<Map<String, dynamic>> _records = []; // List to store the records
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +49,17 @@ class DashboardPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          // Add your navigation logic for adding a record here
+          // Navigate to Add Records page and handle the result
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddRecordsPage()),
+          ).then((newRecord) {
+            if (newRecord != null) {
+              setState(() {
+                _records.add(newRecord); // Add the new record to the records list
+              });
+            }
+          });
         },
         icon: const Icon(Icons.add),
         label: const Text('Add Record'),
@@ -91,7 +109,9 @@ class DashboardPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MyRecordsPage()),
+                MaterialPageRoute(
+                  builder: (context) => MyRecordsPage(records: _records),
+                ),
               );
             },
           ),
