@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="C:\Users\wambo\OneDrive\Desktop\New folder\bloodp\android\app"
+    name=":app"
+    type="APP"
+    maven="android:app:"
+    agpVersion="8.1.0"
+    buildFolder="C:\Users\wambo\OneDrive\Desktop\New folder\bloodp\build\app"
+    bootClassPath="C:\Users\wambo\AppData\Local\Android\sdk\platforms\android-34\android.jar;C:\Users\wambo\AppData\Local\Android\sdk\build-tools\33.0.1\core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>
