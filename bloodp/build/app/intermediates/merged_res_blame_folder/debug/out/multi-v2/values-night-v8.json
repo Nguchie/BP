@@ -4,7 +4,7 @@
             "outputFile": "com.example.bloodp.app-mergeDebugResources-24:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\wambo\\OneDrive\\Desktop\\New folder\\bloodp\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\wambo\\desktop\\BloodPressure\\bloodp\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

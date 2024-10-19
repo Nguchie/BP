@@ -7,6 +7,15 @@ class DashboardPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Dashboard'),
         backgroundColor: Colors.teal,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Icon(Icons.person, color: Colors.teal),
+            ),
+          ),
+        ],
       ),
       drawer: _buildDrawer(),
       body: SingleChildScrollView(
@@ -16,44 +25,26 @@ class DashboardPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildWelcomeSection(),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               _buildKeyStatsOverview(),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               _buildGraphPlaceholder(),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               _buildRecommendationSection(),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               _buildReminderSection(),
             ],
           ),
         ),
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextButton(
-            onPressed: () {
-              // Add your navigation logic for adding a record here
-            },
-            child: const Text(
-              'Add Record',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.teal,
-              ),
-            ),
-          ),
-          const SizedBox(width: 8),
-          FloatingActionButton(
-            onPressed: () {
-              // Add your navigation logic for adding a record here
-            },
-            child: const Icon(Icons.add),
-            backgroundColor: Colors.teal,
-            tooltip: 'Add Record',
-          ),
-        ],
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          // Add your navigation logic for adding a record here
+        },
+        icon: const Icon(Icons.add),
+        label: const Text('Add Record'),
+        backgroundColor: Colors.teal,
+        tooltip: 'Add Record',
       ),
     );
   }
@@ -117,48 +108,52 @@ class DashboardPage extends StatelessWidget {
   }
 
   Widget _buildWelcomeSection() {
-    return const Text(
-      'Good Morning, Evah',
-      style: TextStyle(
-        fontSize: 28,
-        fontWeight: FontWeight.bold,
-      ),
+    return Row(
+      children: [
+        const CircleAvatar(
+          radius: 28,
+          backgroundColor: Colors.teal,
+          child: Icon(Icons.wb_sunny, color: Colors.white, size: 30),
+        ),
+        const SizedBox(width: 16),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              'Good Morning, Evah',
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              'Here’s your daily health overview',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 
   Widget _buildKeyStatsOverview() {
     return Card(
-      elevation: 5, // Added elevation
-      color: Colors.teal,
+      elevation: 8,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      color: Colors.teal[300],
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        padding: const EdgeInsets.all(24.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: const [
-            Text(
-              '100 mmHg',
-              style: TextStyle(
-                fontSize: 36, // Increased font size
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            SizedBox(height: 4), // Added spacing
-            Text(
-              'Pulse: 70 BPM',
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
-            SizedBox(height: 4), // Added spacing
-            Text(
-              'Status: Normal',
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
+            _StatItem(label: 'Blood Pressure', value: '100 mmHg'),
+            _StatItem(label: 'Pulse', value: '70 BPM'),
+            _StatItem(label: 'Status', value: 'Normal'),
           ],
         ),
       ),
@@ -167,15 +162,15 @@ class DashboardPage extends StatelessWidget {
 
   Widget _buildGraphPlaceholder() {
     return Container(
-      height: 200,
+      height: 220,
       decoration: BoxDecoration(
         color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
-            blurRadius: 8,
-            offset: Offset(0, 4),
+            color: Colors.black26,
+            blurRadius: 10,
+            offset: Offset(0, 5),
           ),
         ],
       ),
@@ -190,9 +185,15 @@ class DashboardPage extends StatelessWidget {
 
   Widget _buildRecommendationSection() {
     return Card(
-      elevation: 5, // Added elevation
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
       child: ListTile(
-        title: const Text('Recommendations'),
+        title: const Text(
+          'Recommendations',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
         subtitle: const Text('Tap to view your personalized recommendations'),
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () {
@@ -209,20 +210,56 @@ class DashboardPage extends StatelessWidget {
         const Text(
           'Upcoming Reminders',
           style: TextStyle(
-            fontSize: 20, // Increased font size
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 12),
         Card(
-          elevation: 5, // Added elevation
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           child: ListTile(
+            leading: Icon(Icons.alarm, color: Colors.teal),
             title: const Text('Take Blood Pressure'),
             subtitle: const Text('19/03/2024 - 22:38'),
-            trailing: const Icon(Icons.alarm),
+            trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {
               // Handle reminder tap
             },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _StatItem extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const _StatItem({required this.label, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          value,
+          style: const TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          label,
+          style: const TextStyle(
+            fontSize: 16,
+            color: Colors.white70,
           ),
         ),
       ],

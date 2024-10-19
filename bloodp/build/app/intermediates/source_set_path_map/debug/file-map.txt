@@ -18,10 +18,10 @@ com.example.bloodp.app-core-1.13.1-16 C:\Users\wambo\.gradle\caches\transforms-3
 com.example.bloodp.app-lifecycle-runtime-2.7.0-17 C:\Users\wambo\.gradle\caches\transforms-3\c8996eb6ce8efabee1883fe1486006c9\transformed\lifecycle-runtime-2.7.0\res
 com.example.bloodp.app-jetified-lifecycle-viewmodel-savedstate-2.7.0-18 C:\Users\wambo\.gradle\caches\transforms-3\ca2eed4266fd24517e583e6618aa3924\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
 com.example.bloodp.app-jetified-tracing-1.2.0-19 C:\Users\wambo\.gradle\caches\transforms-3\fee79d0d8ef3af5dbc14ef6d22d028cf\transformed\jetified-tracing-1.2.0\res
-com.example.bloodp.app-debug-20 C:\Users\wambo\OneDrive\Desktop\New folder\bloodp\android\app\src\debug\res
-com.example.bloodp.app-main-21 C:\Users\wambo\OneDrive\Desktop\New folder\bloodp\android\app\src\main\res
-com.example.bloodp.app-pngs-22 C:\Users\wambo\OneDrive\Desktop\New folder\bloodp\build\app\generated\res\pngs\debug
-com.example.bloodp.app-resValues-23 C:\Users\wambo\OneDrive\Desktop\New folder\bloodp\build\app\generated\res\resValues\debug
-com.example.bloodp.app-packageDebugResources-24 C:\Users\wambo\OneDrive\Desktop\New folder\bloodp\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.bloodp.app-packageDebugResources-25 C:\Users\wambo\OneDrive\Desktop\New folder\bloodp\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.bloodp.app-merged_res-26 C:\Users\wambo\OneDrive\Desktop\New folder\bloodp\build\app\intermediates\merged_res\debug
+com.example.bloodp.app-debug-20 C:\Users\wambo\desktop\BloodPressure\bloodp\android\app\src\debug\res
+com.example.bloodp.app-main-21 C:\Users\wambo\desktop\BloodPressure\bloodp\android\app\src\main\res
+com.example.bloodp.app-pngs-22 C:\Users\wambo\desktop\BloodPressure\bloodp\build\app\generated\res\pngs\debug
+com.example.bloodp.app-resValues-23 C:\Users\wambo\desktop\BloodPressure\bloodp\build\app\generated\res\resValues\debug
+com.example.bloodp.app-packageDebugResources-24 C:\Users\wambo\desktop\BloodPressure\bloodp\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.bloodp.app-packageDebugResources-25 C:\Users\wambo\desktop\BloodPressure\bloodp\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.bloodp.app-merged_res-26 C:\Users\wambo\desktop\BloodPressure\bloodp\build\app\intermediates\merged_res\debug
