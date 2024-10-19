@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'set_reminders_page.dart';
+import 'my_records_page.dart';
+import 'recommendations_page.dart';
 
 class DashboardPage extends StatelessWidget {
   @override
@@ -6,7 +9,6 @@ class DashboardPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dashboard'),
-        backgroundColor: Colors.teal,
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -17,7 +19,7 @@ class DashboardPage extends StatelessWidget {
           ),
         ],
       ),
-      drawer: _buildDrawer(),
+      drawer: _buildDrawer(context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -25,14 +27,14 @@ class DashboardPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildWelcomeSection(),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               _buildKeyStatsOverview(),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               _buildGraphPlaceholder(),
-              const SizedBox(height: 30),
-              _buildRecommendationSection(),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               _buildReminderSection(),
+              const SizedBox(height: 20),
+              _buildRecommendationSection(),
             ],
           ),
         ),
@@ -43,13 +45,12 @@ class DashboardPage extends StatelessWidget {
         },
         icon: const Icon(Icons.add),
         label: const Text('Add Record'),
-        backgroundColor: Colors.teal,
         tooltip: 'Add Record',
       ),
     );
   }
 
-  Widget _buildDrawer() {
+  Widget _buildDrawer(BuildContext context) {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -71,28 +72,37 @@ class DashboardPage extends StatelessWidget {
             leading: const Icon(Icons.home),
             title: const Text('Home'),
             onTap: () {
-              // Add navigation logic if needed
+              Navigator.pop(context); // Close the drawer
             },
           ),
           ListTile(
             leading: const Icon(Icons.alarm),
             title: const Text('Set Reminders'),
             onTap: () {
-              // Add navigation logic if needed
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SetRemindersPage()),
+              );
             },
           ),
           ListTile(
             leading: const Icon(Icons.assessment),
             title: const Text('My Records'),
             onTap: () {
-              // Add navigation logic if needed
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyRecordsPage()),
+              );
             },
           ),
           ListTile(
             leading: const Icon(Icons.recommend),
             title: const Text('Recommendations'),
             onTap: () {
-              // Add navigation logic if needed
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => RecommendationsPage()),
+              );
             },
           ),
           ListTile(
@@ -108,52 +118,51 @@ class DashboardPage extends StatelessWidget {
   }
 
   Widget _buildWelcomeSection() {
-    return Row(
-      children: [
-        const CircleAvatar(
-          radius: 28,
-          backgroundColor: Colors.teal,
-          child: Icon(Icons.wb_sunny, color: Colors.white, size: 30),
-        ),
-        const SizedBox(width: 16),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              'Good Morning, Evah',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              'Here’s your daily health overview',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
-          ],
-        ),
-      ],
+    return const Text(
+      'Good Morning, User',
+      style: TextStyle(
+        fontSize: 28,
+        fontWeight: FontWeight.bold,
+      ),
     );
   }
 
   Widget _buildKeyStatsOverview() {
     return Card(
-      elevation: 8,
+      elevation: 5,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
       ),
-      color: Colors.teal[300],
+      color: Colors.teal,
       child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            _StatItem(label: 'Blood Pressure', value: '100 mmHg'),
-            _StatItem(label: 'Pulse', value: '70 BPM'),
-            _StatItem(label: 'Status', value: 'Normal'),
+            Text(
+              '100 mmHg',
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Pulse: 70 BPM',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Status: Normal',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
       ),
@@ -162,15 +171,15 @@ class DashboardPage extends StatelessWidget {
 
   Widget _buildGraphPlaceholder() {
     return Container(
-      height: 220,
+      height: 200,
       decoration: BoxDecoration(
         color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black26,
-            blurRadius: 10,
-            offset: Offset(0, 5),
+            color: Colors.black12,
+            blurRadius: 8,
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -187,13 +196,10 @@ class DashboardPage extends StatelessWidget {
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: ListTile(
-        title: const Text(
-          'Recommendations',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
+        title: const Text('Recommendations'),
         subtitle: const Text('Tap to view your personalized recommendations'),
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () {
@@ -214,52 +220,19 @@ class DashboardPage extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 10),
         Card(
           elevation: 5,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(12),
           ),
           child: ListTile(
-            leading: Icon(Icons.alarm, color: Colors.teal),
             title: const Text('Take Blood Pressure'),
             subtitle: const Text('19/03/2024 - 22:38'),
-            trailing: const Icon(Icons.arrow_forward_ios),
+            trailing: const Icon(Icons.alarm),
             onTap: () {
               // Handle reminder tap
             },
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _StatItem extends StatelessWidget {
-  final String label;
-  final String value;
-
-  const _StatItem({required this.label, required this.value});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          value,
-          style: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-        const SizedBox(height: 6),
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 16,
-            color: Colors.white70,
           ),
         ),
       ],
