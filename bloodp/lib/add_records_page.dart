@@ -14,14 +14,22 @@ class _AddRecordsPageState extends State<AddRecordsPage> {
     final diastolic = int.tryParse(_diastolicController.text);
 
     if (systolic != null && diastolic != null) {
-      // Here you can send the data back to the dashboard or save it
+      if (systolic < 60 || systolic > 250 || diastolic < 40 || diastolic > 150) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Please enter realistic blood pressure values.'),
+          ),
+        );
+        return;
+      }
+
+      // Send the data back to the dashboard or save it
       Navigator.pop(context, {
         'systolic': systolic,
         'diastolic': diastolic,
         'date': DateTime.now(),
       });
     } else {
-      // Show an error message
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Please enter valid numbers.'),

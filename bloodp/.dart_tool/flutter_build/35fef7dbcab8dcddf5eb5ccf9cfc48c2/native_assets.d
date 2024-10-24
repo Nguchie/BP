@@ -1,1 +1,0 @@
- C:\\Users\\wambo\\OneDrive\\Desktop\\New\ folder\\bloodp\\.dart_tool\\flutter_build\\35fef7dbcab8dcddf5eb5ccf9cfc48c2\\native_assets.yaml: 

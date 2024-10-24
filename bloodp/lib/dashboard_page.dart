@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'set_reminders_page.dart';
 import 'my_records_page.dart';
 import 'recommendations_page.dart';
-import 'add_records_page.dart'; // Import the AddRecordsPage
+import 'add_records_page.dart';
 
 class DashboardPage extends StatefulWidget {
   @override
@@ -38,7 +39,7 @@ class _DashboardPageState extends State<DashboardPage> {
               const SizedBox(height: 20),
               _buildKeyStatsOverview(),
               const SizedBox(height: 20),
-              _buildGraphPlaceholder(),
+              _buildCombinationGraphSection(), // Updated graph section with color codes
               const SizedBox(height: 20),
               _buildReminderSection(),
               const SizedBox(height: 20),
@@ -189,9 +190,9 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  Widget _buildGraphPlaceholder() {
+  Widget _buildCombinationGraphSection() {
     return Container(
-      height: 200,
+      height: 300,
       decoration: BoxDecoration(
         color: Colors.grey[200],
         borderRadius: BorderRadius.circular(12),
@@ -203,13 +204,70 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
         ],
       ),
-      child: const Center(
-        child: Text(
-          'Graph Placeholder',
-          style: TextStyle(fontSize: 18),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: BarChart(
+          BarChartData(
+            barGroups: _getBarData(),
+            titlesData: FlTitlesData(
+              leftTitles: AxisTitles(
+                sideTitles: SideTitles(
+                  showTitles: true,
+                  interval: 20,
+                  reservedSize: 40, // Adjust size to prevent overlapping
+                  getTitlesWidget: (value, meta) {
+                    return Text(value.toStringAsFixed(0));
+                  },
+                ),
+              ),
+              bottomTitles: AxisTitles(
+                sideTitles: SideTitles(
+                  showTitles: true,
+                  getTitlesWidget: (value, meta) {
+                    return Text(
+                      'Day ${value.toInt() + 1}',
+                      style: const TextStyle(fontSize: 10),
+                    );
+                  },
+                ),
+              ),
+            ),
+            gridData: FlGridData(show: false),
+          ),
         ),
       ),
     );
+  }
+
+  List<BarChartGroupData> _getBarData() {
+    // Generate bar chart data from the records for systolic and diastolic
+    return _records.asMap().entries.map((entry) {
+      int index = entry.key;
+      var record = entry.value;
+
+      double systolic = record['systolic'] ?? 0.0;
+      double diastolic = record['diastolic'] ?? 0.0;
+
+      // Determine color based on blood pressure values
+      Color systolicColor = _getColorForPressure(systolic, diastolic);
+      Color diastolicColor = _getColorForPressure(systolic, diastolic);
+
+      return BarChartGroupData(x: index, barRods: [
+        BarChartRodData(toY: systolic, color: systolicColor, width: 10),
+        BarChartRodData(toY: diastolic, color: diastolicColor, width: 10),
+      ]);
+    }).toList();
+  }
+
+  // Function to determine the color based on systolic and diastolic values
+  Color _getColorForPressure(double systolic, double diastolic) {
+    if (systolic >= 130 || diastolic >= 90) {
+      return Colors.red; // High blood pressure
+    } else if (systolic >= 120 || diastolic >= 80) {
+      return Colors.orange; // Elevated blood pressure
+    } else {
+      return Colors.green; // Normal blood pressure
+    }
   }
 
   Widget _buildRecommendationSection() {
@@ -223,7 +281,10 @@ class _DashboardPageState extends State<DashboardPage> {
         subtitle: const Text('Tap to view your personalized recommendations'),
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () {
-          // Add navigation logic for recommendations
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => RecommendationsPage()),
+          );
         },
       ),
     );
@@ -247,12 +308,9 @@ class _DashboardPageState extends State<DashboardPage> {
             borderRadius: BorderRadius.circular(12),
           ),
           child: ListTile(
-            title: const Text('Take Blood Pressure'),
-            subtitle: const Text('19/03/2024 - 22:38'),
-            trailing: const Icon(Icons.alarm),
-            onTap: () {
-              // Handle reminder tap
-            },
+            title: const Text('Blood Pressure Check'),
+            subtitle: const Text('Tomorrow, 9:00 AM'),
+            trailing: const Icon(Icons.arrow_forward_ios),
           ),
         ),
       ],
