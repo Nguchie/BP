@@ -37,9 +37,9 @@ class _DashboardPageState extends State<DashboardPage> {
             children: [
               _buildWelcomeSection(),
               const SizedBox(height: 20),
-              _buildKeyStatsOverview(),
+              _buildKeyStatsOverview(), // Updated to display the latest record
               const SizedBox(height: 20),
-              _buildCombinationGraphSection(), // Updated graph section with color codes
+              _buildCombinationGraphSection(),
               const SizedBox(height: 20),
               _buildReminderSection(),
               const SizedBox(height: 20),
@@ -149,37 +149,70 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   Widget _buildKeyStatsOverview() {
+    if (_records.isEmpty) {
+      return Card(
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        color: Colors.teal,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                'No Records Available',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'Please add a record to see your stats',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    // Get the latest record
+    var latestRecord = _records.last;
+    double systolic = latestRecord['systolic'];
+    double diastolic = latestRecord['diastolic'];
+    String status = _getStatusForPressure(systolic, diastolic);
+    Color statusColor = _getColorForPressure(systolic, diastolic);
+
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      color: Colors.teal,
+      color: statusColor,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text(
-              '100 mmHg',
-              style: TextStyle(
+              '$systolic / $diastolic mmHg',
+              style: const TextStyle(
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
-              'Pulse: 70 BPM',
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
-            SizedBox(height: 8),
-            Text(
-              'Status: Normal',
-              style: TextStyle(
+              'Status: $status',
+              style: const TextStyle(
                 fontSize: 20,
                 color: Colors.white,
               ),
@@ -214,7 +247,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 sideTitles: SideTitles(
                   showTitles: true,
                   interval: 20,
-                  reservedSize: 40, // Adjust size to prevent overlapping
+                  reservedSize: 40,
                   getTitlesWidget: (value, meta) {
                     return Text(value.toStringAsFixed(0));
                   },
@@ -240,7 +273,6 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   List<BarChartGroupData> _getBarData() {
-    // Generate bar chart data from the records for systolic and diastolic
     return _records.asMap().entries.map((entry) {
       int index = entry.key;
       var record = entry.value;
@@ -248,7 +280,6 @@ class _DashboardPageState extends State<DashboardPage> {
       double systolic = record['systolic'] ?? 0.0;
       double diastolic = record['diastolic'] ?? 0.0;
 
-      // Determine color based on blood pressure values
       Color systolicColor = _getColorForPressure(systolic, diastolic);
       Color diastolicColor = _getColorForPressure(systolic, diastolic);
 
@@ -259,7 +290,6 @@ class _DashboardPageState extends State<DashboardPage> {
     }).toList();
   }
 
-  // Function to determine the color based on systolic and diastolic values
   Color _getColorForPressure(double systolic, double diastolic) {
     if (systolic >= 130 || diastolic >= 90) {
       return Colors.red; // High blood pressure
@@ -267,6 +297,16 @@ class _DashboardPageState extends State<DashboardPage> {
       return Colors.orange; // Elevated blood pressure
     } else {
       return Colors.green; // Normal blood pressure
+    }
+  }
+
+  String _getStatusForPressure(double systolic, double diastolic) {
+    if (systolic >= 130 || diastolic >= 90) {
+      return 'High';
+    } else if (systolic >= 120 || diastolic >= 80) {
+      return 'Elevated';
+    } else {
+      return 'Normal';
     }
   }
 
@@ -278,7 +318,7 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
       child: ListTile(
         title: const Text('Recommendations'),
-        subtitle: const Text('Tap to view your personalized recommendations'),
+        subtitle: const Text('Based on your recent records'),
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () {
           Navigator.push(
@@ -295,9 +335,9 @@ class _DashboardPageState extends State<DashboardPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Upcoming Reminders',
+          'Reminders',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
