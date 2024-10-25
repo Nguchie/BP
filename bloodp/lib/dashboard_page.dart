@@ -4,6 +4,7 @@ import 'set_reminders_page.dart';
 import 'my_records_page.dart';
 import 'recommendations_page.dart';
 import 'add_records_page.dart';
+import 'reminders_page.dart'; // Import reminders page
 
 class DashboardPage extends StatefulWidget {
   @override
@@ -12,6 +13,41 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   final List<Map<String, dynamic>> _records = []; // List to store the records
+  final List<Map<String, dynamic>> _reminders = []; // List to store reminders
+
+  @override
+  void initState() {
+    super.initState();
+    _checkForUpcomingReminders();
+  }
+
+  void _checkForUpcomingReminders() {
+    // Check for the closest upcoming reminder
+    if (_reminders.isNotEmpty) {
+      _reminders.sort((a, b) => a['dateTime'].compareTo(b['dateTime'])); // Sort reminders by date and time
+      final nextReminder = _reminders.first; // Get the closest upcoming reminder
+      _showReminderNotification(nextReminder); // Show notification
+    }
+  }
+
+  void _showReminderNotification(Map<String, dynamic> reminder) {
+    // Show notification dialog
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Reminder!'),
+        content: Text('You have a reminder: ${reminder['title']} at ${reminder['dateTime']}'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +73,7 @@ class _DashboardPageState extends State<DashboardPage> {
             children: [
               _buildWelcomeSection(),
               const SizedBox(height: 20),
-              _buildKeyStatsOverview(), // Updated to display the latest record
+              _buildKeyStatsOverview(),
               const SizedBox(height: 20),
               _buildCombinationGraphSection(),
               const SizedBox(height: 20),
@@ -50,14 +86,13 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          // Navigate to Add Records page and handle the result
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => AddRecordsPage()),
           ).then((newRecord) {
             if (newRecord != null) {
               setState(() {
-                _records.add(newRecord); // Add the new record to the records list
+                _records.add(newRecord);
               });
             }
           });
@@ -91,7 +126,7 @@ class _DashboardPageState extends State<DashboardPage> {
             leading: const Icon(Icons.home),
             title: const Text('Home'),
             onTap: () {
-              Navigator.pop(context); // Close the drawer
+              Navigator.pop(context);
             },
           ),
           ListTile(
@@ -101,7 +136,14 @@ class _DashboardPageState extends State<DashboardPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => SetRemindersPage()),
-              );
+              ).then((reminder) {
+                if (reminder != null) {
+                  setState(() {
+                    _reminders.add(reminder); // Add new reminder
+                    _checkForUpcomingReminders(); // Check for upcoming reminders
+                  });
+                }
+              });
             },
           ),
           ListTile(
@@ -281,33 +323,85 @@ class _DashboardPageState extends State<DashboardPage> {
       double diastolic = record['diastolic'] ?? 0.0;
 
       Color systolicColor = _getColorForPressure(systolic, diastolic);
-      Color diastolicColor = _getColorForPressure(systolic, diastolic);
+      Color diastolicColor = Colors.blue;
 
-      return BarChartGroupData(x: index, barRods: [
-        BarChartRodData(toY: systolic, color: systolicColor, width: 10),
-        BarChartRodData(toY: diastolic, color: diastolicColor, width: 10),
-      ]);
+      return BarChartGroupData(
+        x: index,
+        barRods: [
+          BarChartRodData(
+            toY: systolic,
+            color: systolicColor,
+            width: 20,
+          ),
+          BarChartRodData(
+            toY: diastolic,
+            color: diastolicColor,
+            width: 20,
+          ),
+        ],
+      );
     }).toList();
   }
 
-  Color _getColorForPressure(double systolic, double diastolic) {
-    if (systolic >= 130 || diastolic >= 90) {
-      return Colors.red; // High blood pressure
-    } else if (systolic >= 120 || diastolic >= 80) {
-      return Colors.orange; // Elevated blood pressure
-    } else {
-      return Colors.green; // Normal blood pressure
+  Widget _buildReminderSection() {
+    if (_reminders.isEmpty) {
+      return Card(
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: const [
+              Text(
+                'No Reminders Set',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'You can set reminders for your medication.',
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
     }
-  }
 
-  String _getStatusForPressure(double systolic, double diastolic) {
-    if (systolic >= 130 || diastolic >= 90) {
-      return 'High';
-    } else if (systolic >= 120 || diastolic >= 80) {
-      return 'Elevated';
-    } else {
-      return 'Normal';
-    }
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Upcoming Reminders',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            ..._reminders.map((reminder) {
+              return ListTile(
+                title: Text(reminder['title']),
+                subtitle: Text(reminder['dateTime'].toString()),
+                trailing: const Icon(Icons.alarm),
+              );
+            }).toList(),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _buildRecommendationSection() {
@@ -316,44 +410,56 @@ class _DashboardPageState extends State<DashboardPage> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      child: ListTile(
-        title: const Text('Recommendations'),
-        subtitle: const Text('Based on your recent records'),
-        trailing: const Icon(Icons.arrow_forward_ios),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => RecommendationsPage()),
-          );
-        },
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              'Recommendations',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Stay hydrated, eat healthy, and keep monitoring your blood pressure!',
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _buildReminderSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Reminders',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 10),
-        Card(
-          elevation: 5,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: ListTile(
-            title: const Text('Blood Pressure Check'),
-            subtitle: const Text('Tomorrow, 9:00 AM'),
-            trailing: const Icon(Icons.arrow_forward_ios),
-          ),
-        ),
-      ],
-    );
+  String _getStatusForPressure(double systolic, double diastolic) {
+    if (systolic < 120 && diastolic < 80) {
+      return 'Normal';
+    } else if (systolic <= 129 && diastolic < 80) {
+      return 'Elevated';
+    } else if ((systolic >= 130 && systolic <= 139) || (diastolic >= 80 && diastolic <= 89)) {
+      return 'Hypertension Stage 1';
+    } else if (systolic >= 140 || diastolic >= 90) {
+      return 'Hypertension Stage 2';
+    } else {
+      return 'Hypertensive Crisis';
+    }
   }
-}
+
+  Color _getColorForPressure(double systolic, double diastolic) {
+    if (systolic < 120 && diastolic < 80) {
+      return Colors.green; // Normal
+    } else if (systolic <= 129 && diastolic < 80) {
+      return Colors.yellow; // Elevated
+    } else if ((systolic >= 130 && systolic <= 139) || (diastolic >= 80 && diastolic <= 89)) {
+      return Colors.orange; // Hypertension Stage 1
+    } else if (systolic >= 140 || diastolic >= 90) {
+      return Colors.red; // Hypertension Stage 2
+    } else {
+      return Colors.redAccent; // Hypertensive Crisis
+    }
+  }
+} 

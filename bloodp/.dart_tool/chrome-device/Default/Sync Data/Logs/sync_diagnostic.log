@@ -659,3 +659,228 @@
 2024-10-24T22:25:55.382Z P:10048 T:14456] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 0
 2024-10-24T22:25:55.384Z P:10048 T:14456] SyncServiceImpl::OnConfigureDone,Configure DataTypeManager with: Ok
 2024-10-24T22:25:55.386Z P:10048 T:9256] SyncEngineBackend::DoStartSyncing,Start syncing
+2024-10-24T22:44:14.390Z P:11388 T:14504] SyncServiceImpl::Initialize,SyncState after authenticated was: FeatureCanStart
+2024-10-24T22:44:15.948Z P:11388 T:14504] SyncServiceImpl::TryStartImpl,Try to start sync engine
+2024-10-24T22:44:15.950Z P:11388 T:12004] SyncManagerImpl::NudgeForInitialDownload,Initial download nudge for Encryption Keys
+2024-10-24T22:44:15.950Z P:11388 T:12004] SyncEngineBackend::LoadAndConnectNigoriController,Load and connect Nigori controller
+2024-10-24T22:44:15.950Z P:11388 T:12004] SyncEngineBackend::DoInitialize,Control Types added: Encryption Keys
+2024-10-24T22:44:15.950Z P:11388 T:12004] SyncManagerImpl::ConfigureSyncer,Types to download: Encryption Keys with reason: 3
+2024-10-24T22:44:15.950Z P:11388 T:12004] SyncSchedulerImpl::DoConfigurationSyncCycleJob,Configure job was blocked
+2024-10-24T22:44:15.988Z P:11388 T:14504] SyncAuthManager::SetLastAuthError,Current auth error: None
+2024-10-24T22:44:15.988Z P:11388 T:14504] SyncAuthManager::EdgeLogTokenErrorState,Token error with: None for account type: MSA
+2024-10-24T22:44:15.988Z P:11388 T:14504] SyncServiceImpl::CredentialsChanged,Credentials changed for: EdgeSyncScopeNew
+2024-10-24T22:44:16.585Z P:11388 T:14504] SyncAuthManager::SetLastAuthError,Current auth error: None
+2024-10-24T22:44:16.585Z P:11388 T:14504] SyncAuthManager::EdgeLogTokenErrorState,Token error with: None for account type: MSA
+2024-10-24T22:44:16.585Z P:11388 T:14504] SyncServiceImpl::CredentialsChangedForKeyData,Credentials changed for: EdgeSyncKeyDataScope
+2024-10-24T22:44:16.585Z P:11388 T:15432] SyncEngineBackend::DoUpdateKeyDataCredentials,Update key data credentials
+2024-10-24T22:44:16.585Z P:11388 T:15432] SyncEngineBackend::DoUpdateCredentials,Update credentials
+2024-10-24T22:44:16.585Z P:11388 T:15432] SyncSchedulerImpl::DoConfigurationSyncCycleJob,Blocked types:  and types to download: Encryption Keys
+2024-10-24T22:44:17.653Z P:11388 T:14504] SyncServiceImpl::OnEngineInitialized,Initialize engine with: Success
+2024-10-24T22:44:17.653Z P:11388 T:14504] SyncServiceImpl::ConfigureDataTypeManager,Configure DataTypeManager with reason: 4
+2024-10-24T22:44:17.653Z P:11388 T:14504] DataTypeManagerImpl::ConfigureImpl,Configuring types: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys with reason: 4 and current state: 0
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::Configure,Desired types without errors: Bookmarks, Preferences, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys and types with errors: Passwords, Autofill Profiles, Autofill
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Bookmarks
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Preferences
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Typed URLs
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Extensions
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Sessions
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Extension settings
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: History Delete Directives
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Device Info
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: User Consents
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Send Tab To Self
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Web Apps
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Collection
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Edge E Drop
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Edge Hub App Usage
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Edge Tab Group
+2024-10-24T22:44:17.655Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Edge Wallet
+2024-10-24T22:44:17.664Z P:11388 T:14504] DataTypeManagerImpl::OnAllDataTypesReadyForConfigure,Start to configure data types
+2024-10-24T22:44:17.664Z P:11388 T:14504] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 4 and next configuring types are: Encryption Keys
+2024-10-24T22:44:17.664Z P:11388 T:14504] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Passwords, Autofill Profiles, Autofill, Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T22:44:20.227Z P:11388 T:14504] SyncServiceImpl::ConfigureDataTypeManager,Configure DataTypeManager with reason: 5
+2024-10-24T22:44:20.228Z P:11388 T:14504] DataTypeManagerImpl::ConfigureImpl,Configuring types: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys with reason: 5 and current state: 1
+2024-10-24T22:44:20.228Z P:11388 T:15432] SyncEngineBackend::DoStartConfiguration,Start configuration
+2024-10-24T22:44:20.228Z P:11388 T:15432] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 4
+2024-10-24T22:44:20.228Z P:11388 T:15432] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T22:44:20.230Z P:11388 T:14504] DataTypeManagerImpl::ConfigurationCompleted,Need reconfigure with failed types: 
+2024-10-24T22:44:20.230Z P:11388 T:14504] DataTypeManagerImpl::ConfigureImpl,Configuring types: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys with reason: 5 and current state: 2
+2024-10-24T22:44:20.230Z P:11388 T:14504] ModelLoadManager::Configure,Desired types without errors: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys and types with errors: 
+2024-10-24T22:44:20.230Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Passwords
+2024-10-24T22:44:20.230Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Autofill Profiles
+2024-10-24T22:44:20.230Z P:11388 T:14504] ModelLoadManager::LoadDesiredTypes,Loading type: Autofill
+2024-10-24T22:44:20.230Z P:11388 T:14504] DataTypeManagerImpl::OnAllDataTypesReadyForConfigure,Start to configure data types
+2024-10-24T22:44:20.230Z P:11388 T:14504] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 4 and next configuring types are: Encryption Keys
+2024-10-24T22:44:20.230Z P:11388 T:15432] SyncManagerImpl::NudgeForInitialDownload,Initial download nudge for Passwords
+2024-10-24T22:44:20.230Z P:11388 T:14504] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T22:44:20.230Z P:11388 T:15432] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 5
+2024-10-24T22:44:20.230Z P:11388 T:15432] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T22:44:20.230Z P:11388 T:14504] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 3
+2024-10-24T22:44:20.231Z P:11388 T:14504] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 3 and next configuring types are: Preferences, Passwords, Device Info, Send Tab To Self, Edge E Drop
+2024-10-24T22:44:20.231Z P:11388 T:14504] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types: Passwords, Encryption Keys with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T22:44:20.231Z P:11388 T:12004] SyncManagerImpl::ConfigureSyncer,Types to download: Passwords, Encryption Keys with reason: 5
+2024-10-24T22:44:20.231Z P:11388 T:12004] SyncSchedulerImpl::DoConfigurationSyncCycleJob,Blocked types:  and types to download: Passwords, Encryption Keys
+2024-10-24T22:44:20.625Z P:11388 T:12004] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: Passwords, Encryption Keys
+2024-10-24T22:44:20.628Z P:11388 T:14504] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 2
+2024-10-24T22:44:20.628Z P:11388 T:14504] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 2 and next configuring types are: Bookmarks
+2024-10-24T22:44:20.629Z P:11388 T:14504] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T22:44:20.629Z P:11388 T:12004] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 5
+2024-10-24T22:44:20.629Z P:11388 T:12004] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T22:44:20.629Z P:11388 T:14504] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 1
+2024-10-24T22:44:20.633Z P:11388 T:14504] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 1 and next configuring types are: Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, User Consents, Web Apps, Collection, Edge Hub App Usage, Edge Tab Group, Edge Wallet
+2024-10-24T22:44:20.633Z P:11388 T:14504] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T22:44:20.634Z P:11388 T:12004] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 5
+2024-10-24T22:44:20.634Z P:11388 T:12004] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T22:44:20.640Z P:11388 T:14504] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 0
+2024-10-24T22:44:20.641Z P:11388 T:14504] SyncServiceImpl::OnConfigureDone,Configure DataTypeManager with: Ok
+2024-10-24T22:44:20.643Z P:11388 T:12896] SyncEngineBackend::DoStartSyncing,Start syncing
+2024-10-24T22:49:18.390Z P:12048 T:8816] SyncServiceImpl::Initialize,SyncState after authenticated was: FeatureCanStart
+2024-10-24T22:49:19.996Z P:12048 T:8816] SyncServiceImpl::TryStartImpl,Try to start sync engine
+2024-10-24T22:49:19.998Z P:12048 T:8020] SyncManagerImpl::NudgeForInitialDownload,Initial download nudge for Encryption Keys
+2024-10-24T22:49:19.998Z P:12048 T:8020] SyncEngineBackend::LoadAndConnectNigoriController,Load and connect Nigori controller
+2024-10-24T22:49:19.998Z P:12048 T:8020] SyncEngineBackend::DoInitialize,Control Types added: Encryption Keys
+2024-10-24T22:49:19.998Z P:12048 T:8020] SyncManagerImpl::ConfigureSyncer,Types to download: Encryption Keys with reason: 3
+2024-10-24T22:49:19.998Z P:12048 T:8020] SyncSchedulerImpl::DoConfigurationSyncCycleJob,Configure job was blocked
+2024-10-24T22:49:20.229Z P:12048 T:8816] SyncAuthManager::SetLastAuthError,Current auth error: None
+2024-10-24T22:49:20.229Z P:12048 T:8816] SyncAuthManager::EdgeLogTokenErrorState,Token error with: None for account type: MSA
+2024-10-24T22:49:20.229Z P:12048 T:8816] SyncServiceImpl::CredentialsChanged,Credentials changed for: EdgeSyncScopeNew
+2024-10-24T22:49:20.859Z P:12048 T:8816] SyncAuthManager::SetLastAuthError,Current auth error: None
+2024-10-24T22:49:20.859Z P:12048 T:8816] SyncAuthManager::EdgeLogTokenErrorState,Token error with: None for account type: MSA
+2024-10-24T22:49:20.859Z P:12048 T:8816] SyncServiceImpl::CredentialsChangedForKeyData,Credentials changed for: EdgeSyncKeyDataScope
+2024-10-24T22:49:20.859Z P:12048 T:2280] SyncEngineBackend::DoUpdateKeyDataCredentials,Update key data credentials
+2024-10-24T22:49:20.859Z P:12048 T:2280] SyncEngineBackend::DoUpdateCredentials,Update credentials
+2024-10-24T22:49:20.859Z P:12048 T:2280] SyncSchedulerImpl::DoConfigurationSyncCycleJob,Blocked types:  and types to download: Encryption Keys
+2024-10-24T22:49:21.901Z P:12048 T:8816] SyncServiceImpl::OnEngineInitialized,Initialize engine with: Success
+2024-10-24T22:49:21.901Z P:12048 T:8816] SyncServiceImpl::ConfigureDataTypeManager,Configure DataTypeManager with reason: 4
+2024-10-24T22:49:21.901Z P:12048 T:8816] DataTypeManagerImpl::ConfigureImpl,Configuring types: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys with reason: 4 and current state: 0
+2024-10-24T22:49:21.904Z P:12048 T:8816] ModelLoadManager::Configure,Desired types without errors: Bookmarks, Preferences, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys and types with errors: Passwords, Autofill Profiles, Autofill
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Bookmarks
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Preferences
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Typed URLs
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Extensions
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Sessions
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Extension settings
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: History Delete Directives
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Device Info
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: User Consents
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Send Tab To Self
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Web Apps
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Collection
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Edge E Drop
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Edge Hub App Usage
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Edge Tab Group
+2024-10-24T22:49:21.905Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Edge Wallet
+2024-10-24T22:49:21.914Z P:12048 T:8816] DataTypeManagerImpl::OnAllDataTypesReadyForConfigure,Start to configure data types
+2024-10-24T22:49:21.914Z P:12048 T:8816] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 4 and next configuring types are: Encryption Keys
+2024-10-24T22:49:21.914Z P:12048 T:8816] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Passwords, Autofill Profiles, Autofill, Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T22:49:24.024Z P:12048 T:8816] SyncServiceImpl::ConfigureDataTypeManager,Configure DataTypeManager with reason: 5
+2024-10-24T22:49:24.024Z P:12048 T:8816] DataTypeManagerImpl::ConfigureImpl,Configuring types: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys with reason: 5 and current state: 1
+2024-10-24T22:49:24.025Z P:12048 T:2280] SyncEngineBackend::DoStartConfiguration,Start configuration
+2024-10-24T22:49:24.025Z P:12048 T:2280] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 4
+2024-10-24T22:49:24.025Z P:12048 T:2280] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T22:49:24.027Z P:12048 T:8816] DataTypeManagerImpl::ConfigurationCompleted,Need reconfigure with failed types: 
+2024-10-24T22:49:24.027Z P:12048 T:8816] DataTypeManagerImpl::ConfigureImpl,Configuring types: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys with reason: 5 and current state: 2
+2024-10-24T22:49:24.027Z P:12048 T:8816] ModelLoadManager::Configure,Desired types without errors: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys and types with errors: 
+2024-10-24T22:49:24.027Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Passwords
+2024-10-24T22:49:24.027Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Autofill Profiles
+2024-10-24T22:49:24.027Z P:12048 T:8816] ModelLoadManager::LoadDesiredTypes,Loading type: Autofill
+2024-10-24T22:49:24.032Z P:12048 T:8816] DataTypeManagerImpl::OnAllDataTypesReadyForConfigure,Start to configure data types
+2024-10-24T22:49:24.032Z P:12048 T:8816] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 4 and next configuring types are: Encryption Keys
+2024-10-24T22:49:24.032Z P:12048 T:2280] SyncManagerImpl::NudgeForInitialDownload,Initial download nudge for Passwords
+2024-10-24T22:49:24.032Z P:12048 T:8816] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T22:49:24.032Z P:12048 T:2280] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 5
+2024-10-24T22:49:24.032Z P:12048 T:2280] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T22:49:24.032Z P:12048 T:8816] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 3
+2024-10-24T22:49:24.032Z P:12048 T:8816] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 3 and next configuring types are: Preferences, Passwords, Device Info, Send Tab To Self, Edge E Drop
+2024-10-24T22:49:24.032Z P:12048 T:8816] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types: Passwords, Encryption Keys with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T22:49:24.032Z P:12048 T:8020] SyncManagerImpl::ConfigureSyncer,Types to download: Passwords, Encryption Keys with reason: 5
+2024-10-24T22:49:24.032Z P:12048 T:8020] SyncSchedulerImpl::DoConfigurationSyncCycleJob,Blocked types:  and types to download: Passwords, Encryption Keys
+2024-10-24T22:49:24.455Z P:12048 T:8020] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: Passwords, Encryption Keys
+2024-10-24T22:49:24.457Z P:12048 T:8816] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 2
+2024-10-24T22:49:24.457Z P:12048 T:8816] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 2 and next configuring types are: Bookmarks
+2024-10-24T22:49:24.457Z P:12048 T:8816] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T22:49:24.457Z P:12048 T:8020] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 5
+2024-10-24T22:49:24.457Z P:12048 T:8020] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T22:49:24.457Z P:12048 T:8816] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 1
+2024-10-24T22:49:24.459Z P:12048 T:8816] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 1 and next configuring types are: Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, User Consents, Web Apps, Collection, Edge Hub App Usage, Edge Tab Group, Edge Wallet
+2024-10-24T22:49:24.459Z P:12048 T:8816] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T22:49:24.459Z P:12048 T:8020] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 5
+2024-10-24T22:49:24.459Z P:12048 T:8020] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T22:49:24.464Z P:12048 T:8816] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 0
+2024-10-24T22:49:24.466Z P:12048 T:8816] SyncServiceImpl::OnConfigureDone,Configure DataTypeManager with: Ok
+2024-10-24T22:49:24.474Z P:12048 T:2640] SyncEngineBackend::DoStartSyncing,Start syncing
+2024-10-24T23:31:19.008Z P:6576 T:14580] SyncServiceImpl::Initialize,SyncState after authenticated was: FeatureCanStart
+2024-10-24T23:31:20.566Z P:6576 T:14580] SyncServiceImpl::TryStartImpl,Try to start sync engine
+2024-10-24T23:31:20.567Z P:6576 T:10788] SyncManagerImpl::NudgeForInitialDownload,Initial download nudge for Encryption Keys
+2024-10-24T23:31:20.567Z P:6576 T:10788] SyncEngineBackend::LoadAndConnectNigoriController,Load and connect Nigori controller
+2024-10-24T23:31:20.567Z P:6576 T:10788] SyncEngineBackend::DoInitialize,Control Types added: Encryption Keys
+2024-10-24T23:31:20.567Z P:6576 T:10788] SyncManagerImpl::ConfigureSyncer,Types to download: Encryption Keys with reason: 3
+2024-10-24T23:31:20.567Z P:6576 T:10788] SyncSchedulerImpl::DoConfigurationSyncCycleJob,Configure job was blocked
+2024-10-24T23:31:20.615Z P:6576 T:14580] SyncAuthManager::SetLastAuthError,Current auth error: None
+2024-10-24T23:31:20.615Z P:6576 T:14580] SyncAuthManager::EdgeLogTokenErrorState,Token error with: None for account type: MSA
+2024-10-24T23:31:20.615Z P:6576 T:14580] SyncServiceImpl::CredentialsChanged,Credentials changed for: EdgeSyncScopeNew
+2024-10-24T23:31:21.832Z P:6576 T:14580] SyncAuthManager::SetLastAuthError,Current auth error: None
+2024-10-24T23:31:21.832Z P:6576 T:14580] SyncAuthManager::EdgeLogTokenErrorState,Token error with: None for account type: MSA
+2024-10-24T23:31:21.832Z P:6576 T:14580] SyncServiceImpl::CredentialsChangedForKeyData,Credentials changed for: EdgeSyncKeyDataScope
+2024-10-24T23:31:21.833Z P:6576 T:10788] SyncEngineBackend::DoUpdateKeyDataCredentials,Update key data credentials
+2024-10-24T23:31:21.833Z P:6576 T:10788] SyncEngineBackend::DoUpdateCredentials,Update credentials
+2024-10-24T23:31:21.833Z P:6576 T:10788] SyncSchedulerImpl::DoConfigurationSyncCycleJob,Blocked types:  and types to download: Encryption Keys
+2024-10-24T23:31:22.741Z P:6576 T:14580] SyncServiceImpl::OnEngineInitialized,Initialize engine with: Success
+2024-10-24T23:31:22.741Z P:6576 T:14580] SyncServiceImpl::ConfigureDataTypeManager,Configure DataTypeManager with reason: 4
+2024-10-24T23:31:22.741Z P:6576 T:14580] DataTypeManagerImpl::ConfigureImpl,Configuring types: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys with reason: 4 and current state: 0
+2024-10-24T23:31:22.743Z P:6576 T:14580] ModelLoadManager::Configure,Desired types without errors: Bookmarks, Preferences, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys and types with errors: Passwords, Autofill Profiles, Autofill
+2024-10-24T23:31:22.743Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Bookmarks
+2024-10-24T23:31:22.743Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Preferences
+2024-10-24T23:31:22.743Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Typed URLs
+2024-10-24T23:31:22.743Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Extensions
+2024-10-24T23:31:22.743Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Sessions
+2024-10-24T23:31:22.743Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Extension settings
+2024-10-24T23:31:22.743Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: History Delete Directives
+2024-10-24T23:31:22.744Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Device Info
+2024-10-24T23:31:22.744Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: User Consents
+2024-10-24T23:31:22.744Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Send Tab To Self
+2024-10-24T23:31:22.744Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Web Apps
+2024-10-24T23:31:22.744Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Collection
+2024-10-24T23:31:22.744Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Edge E Drop
+2024-10-24T23:31:22.744Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Edge Hub App Usage
+2024-10-24T23:31:22.744Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Edge Tab Group
+2024-10-24T23:31:22.744Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Edge Wallet
+2024-10-24T23:31:22.753Z P:6576 T:14580] DataTypeManagerImpl::OnAllDataTypesReadyForConfigure,Start to configure data types
+2024-10-24T23:31:22.753Z P:6576 T:14580] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 4 and next configuring types are: Encryption Keys
+2024-10-24T23:31:22.753Z P:6576 T:14580] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Passwords, Autofill Profiles, Autofill, Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T23:31:23.767Z P:6576 T:14580] SyncServiceImpl::ConfigureDataTypeManager,Configure DataTypeManager with reason: 5
+2024-10-24T23:31:23.767Z P:6576 T:14580] DataTypeManagerImpl::ConfigureImpl,Configuring types: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys with reason: 5 and current state: 1
+2024-10-24T23:31:23.768Z P:6576 T:10788] SyncEngineBackend::DoStartConfiguration,Start configuration
+2024-10-24T23:31:23.768Z P:6576 T:9984] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 4
+2024-10-24T23:31:23.768Z P:6576 T:9984] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T23:31:23.770Z P:6576 T:14580] DataTypeManagerImpl::ConfigurationCompleted,Need reconfigure with failed types: 
+2024-10-24T23:31:23.770Z P:6576 T:14580] DataTypeManagerImpl::ConfigureImpl,Configuring types: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys with reason: 5 and current state: 2
+2024-10-24T23:31:23.770Z P:6576 T:14580] ModelLoadManager::Configure,Desired types without errors: Bookmarks, Preferences, Passwords, Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, Device Info, User Consents, Send Tab To Self, Web Apps, Collection, Edge E Drop, Edge Hub App Usage, Edge Tab Group, Edge Wallet, Encryption Keys and types with errors: 
+2024-10-24T23:31:23.770Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Passwords
+2024-10-24T23:31:23.770Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Autofill Profiles
+2024-10-24T23:31:23.770Z P:6576 T:14580] ModelLoadManager::LoadDesiredTypes,Loading type: Autofill
+2024-10-24T23:31:23.775Z P:6576 T:14580] DataTypeManagerImpl::OnAllDataTypesReadyForConfigure,Start to configure data types
+2024-10-24T23:31:23.775Z P:6576 T:14580] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 4 and next configuring types are: Encryption Keys
+2024-10-24T23:31:23.775Z P:6576 T:9984] SyncManagerImpl::NudgeForInitialDownload,Initial download nudge for Passwords
+2024-10-24T23:31:23.775Z P:6576 T:14580] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T23:31:23.775Z P:6576 T:9984] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 5
+2024-10-24T23:31:23.775Z P:6576 T:9984] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T23:31:23.776Z P:6576 T:14580] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 3
+2024-10-24T23:31:23.776Z P:6576 T:14580] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 3 and next configuring types are: Preferences, Passwords, Device Info, Send Tab To Self, Edge E Drop
+2024-10-24T23:31:23.776Z P:6576 T:14580] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types: Passwords, Encryption Keys with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T23:31:23.776Z P:6576 T:9984] SyncManagerImpl::ConfigureSyncer,Types to download: Passwords, Encryption Keys with reason: 5
+2024-10-24T23:31:23.776Z P:6576 T:9984] SyncSchedulerImpl::DoConfigurationSyncCycleJob,Blocked types:  and types to download: Passwords, Encryption Keys
+2024-10-24T23:31:24.277Z P:6576 T:9984] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: Passwords, Encryption Keys
+2024-10-24T23:31:24.279Z P:6576 T:14580] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 2
+2024-10-24T23:31:24.279Z P:6576 T:14580] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 2 and next configuring types are: Bookmarks
+2024-10-24T23:31:24.279Z P:6576 T:14580] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T23:31:24.279Z P:6576 T:9984] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 5
+2024-10-24T23:31:24.279Z P:6576 T:9984] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T23:31:24.279Z P:6576 T:14580] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 1
+2024-10-24T23:31:24.281Z P:6576 T:14580] DataTypeManagerImpl::StartNextConfiguration,Remain to be configured size: 1 and next configuring types are: Autofill Profiles, Autofill, Typed URLs, Extensions, Sessions, Extension settings, History Delete Directives, User Consents, Web Apps, Collection, Edge Hub App Usage, Edge Tab Group, Edge Wallet
+2024-10-24T23:31:24.281Z P:6576 T:14580] DataTypeManagerImpl::PrepareConfigureParams,Prepare to be configured types:  with disabled types: Autofill Wallet, Autofill Wallet Metadata, Autofill Wallet Offer, Autofill Custom Data, Edge Autofill Form Field Data, Edge Autofill Form Field Ss Data, Themes, Search Engines, Apps, App settings, Dictionary, Priority Preferences, Managed User Settings, App List, Arc Package, Printers, Reading List, User Events, Security Events, Wifi Configurations, OS Preferences, OS Priority Preferences, Sharing Message, Workspace Desk, History, Saved Tab Group, Shared Tab Group Data, Collaboration Group, Plus Address, Product Comparison, Cookies, Plus Address Setting, Collections Metadata, Edge Hub App
+2024-10-24T23:31:24.281Z P:6576 T:9984] SyncManagerImpl::ConfigureSyncer,Types to download:  with reason: 5
+2024-10-24T23:31:24.282Z P:6576 T:9984] SyncEngineBackend::DoFinishConfigureDataTypes,Failed to download types:  and succeeded types: 
+2024-10-24T23:31:24.282Z P:6576 T:14580] DataTypeManagerImpl::ConfigurationCompleted,Remain to be configured size: 0
+2024-10-24T23:31:24.284Z P:6576 T:14580] SyncServiceImpl::OnConfigureDone,Configure DataTypeManager with: Ok
+2024-10-24T23:31:24.286Z P:6576 T:13044] SyncEngineBackend::DoStartSyncing,Start syncing
