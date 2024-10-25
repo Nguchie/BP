@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MyRecordsPage extends StatelessWidget {
   final List<Map<String, dynamic>> records;
 
-  MyRecordsPage({Key? key, required this.records}) : super(key: key);
+  const MyRecordsPage({Key? key, required this.records}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

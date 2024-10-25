@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'dashboard_page.dart';
+import 'login_screen.dart';   // Import your login screen
+import 'signup_screen.dart';  // Import your signup screen
+import 'dashboard_page.dart';  // Import your dashboard page
 
 void main() {
   runApp(const MyApp());
@@ -21,8 +23,12 @@ class MyApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      home: DashboardPage(),
+      initialRoute: '/login',  // Set the initial route to login
+      routes: {
+        '/login': (context) => LoginScreen(),     // Login page
+        '/signup': (context) => SignupScreen(),   // Signup page
+        '/dashboard': (context) => DashboardPage(), // Dashboard page
+      },
     );
   }
 }
- 

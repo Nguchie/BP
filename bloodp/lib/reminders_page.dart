@@ -17,7 +17,7 @@ class RemindersPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Reminders'),
+        title: const Text('Reminders'),
       ),
       body: ListView.builder(
         itemCount: reminders.length,
@@ -36,17 +36,17 @@ class RemindersPage extends StatelessWidget {
             context: context,
             builder: (context) {
               return AlertDialog(
-                title: Text('Add Reminder'),
+                title: const Text('Add Reminder'),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextField(
                       controller: titleController,
-                      decoration: InputDecoration(labelText: 'Reminder Title'),
+                      decoration: const InputDecoration(labelText: 'Reminder Title'),
                     ),
                     TextField(
                       controller: dateController,
-                      decoration: InputDecoration(labelText: 'Date & Time (YYYY-MM-DD HH:MM)'),
+                      decoration: const InputDecoration(labelText: 'Date & Time (YYYY-MM-DD HH:MM)'),
                     ),
                   ],
                 ),
@@ -62,14 +62,14 @@ class RemindersPage extends StatelessWidget {
                       onAddReminder(newReminder); // Call the callback
                       Navigator.of(context).pop(); // Close the dialog
                     },
-                    child: Text('Add'),
+                    child: const Text('Add'),
                   ),
                 ],
               );
             },
           );
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

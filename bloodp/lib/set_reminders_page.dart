@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SetRemindersPage extends StatefulWidget {
+  const SetRemindersPage({super.key});
+
   @override
   _SetRemindersPageState createState() => _SetRemindersPageState();
 }

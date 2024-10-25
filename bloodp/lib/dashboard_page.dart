@@ -7,6 +7,8 @@ import 'add_records_page.dart';
 import 'reminders_page.dart'; // Import reminders page
 
 class DashboardPage extends StatefulWidget {
+  const DashboardPage({super.key});
+
   @override
   _DashboardPageState createState() => _DashboardPageState();
 }
@@ -35,7 +37,7 @@ class _DashboardPageState extends State<DashboardPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Reminder!'),
+        title: const Text('Reminder!'),
         content: Text('You have a reminder: ${reminder['title']} at ${reminder['dateTime']}'),
         actions: [
           TextButton(
@@ -54,9 +56,9 @@ class _DashboardPageState extends State<DashboardPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dashboard'),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
               backgroundColor: Colors.white,
               child: Icon(Icons.person, color: Colors.teal),
@@ -198,11 +200,11 @@ class _DashboardPageState extends State<DashboardPage> {
           borderRadius: BorderRadius.circular(12),
         ),
         color: Colors.teal,
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
+        child: const Padding(
+          padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
                 'No Records Available',
                 style: TextStyle(
@@ -271,7 +273,7 @@ class _DashboardPageState extends State<DashboardPage> {
       decoration: BoxDecoration(
         color: Colors.grey[200],
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             blurRadius: 8,
@@ -307,7 +309,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
               ),
             ),
-            gridData: FlGridData(show: false),
+            gridData: const FlGridData(show: false),
           ),
         ),
       ),
@@ -350,10 +352,10 @@ class _DashboardPageState extends State<DashboardPage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
+        child: const Padding(
+          padding: EdgeInsets.all(16.0),
           child: Column(
-            children: const [
+            children: [
               Text(
                 'No Reminders Set',
                 style: TextStyle(
@@ -410,11 +412,11 @@ class _DashboardPageState extends State<DashboardPage> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
+      child: const Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text(
               'Recommendations',
               style: TextStyle(

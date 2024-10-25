@@ -229,6 +229,18 @@
       "type": "builtin",
       "version": "1002"
    }, {
+      "appId": "71146be72c1663fbeca123476b494b56",
+      "appName": "app_selfupdate",
+      "data": {
+         "updateEntranceEnabled": true,
+         "updateUpsellEnabled": true,
+         "versionInterval": 3
+      },
+      "effectStrategy": "launch",
+      "instanceId": "50635c2a4c9497e9cde34ad29c4cc82a",
+      "type": "builtin",
+      "version": "1001"
+   }, {
       "appId": "a3f5b7c9d1e2f4a6b8c7d9e1f2a3b4d7",
       "appName": "darkmode",
       "data": {
@@ -307,5 +319,5 @@
       "type": "normal",
       "version": "1002"
    } ],
-   "version": "202410180002"
+   "version": "202410240001"
 }
