@@ -25,9 +25,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/login',  // Set the initial route to login
       routes: {
-        '/login': (context) => LoginScreen(),     // Login page
-        '/signup': (context) => SignupScreen(),   // Signup page
-        '/dashboard': (context) => DashboardPage(), // Dashboard page
+        '/login': (context) => LoginPage(),     // Login page
+        '/signup': (context) => SignupPage(),   // Signup page
+        '/dashboard': (context) => const DashboardPage(), // Dashboard page
       },
     );
   }

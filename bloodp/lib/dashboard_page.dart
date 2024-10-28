@@ -90,7 +90,7 @@ class _DashboardPageState extends State<DashboardPage> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddRecordsPage()),
+            MaterialPageRoute(builder: (context) => const AddRecordsPage()),
           ).then((newRecord) {
             if (newRecord != null) {
               setState(() {
@@ -137,7 +137,7 @@ class _DashboardPageState extends State<DashboardPage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SetRemindersPage()),
+                MaterialPageRoute(builder: (context) => const SetRemindersPage()),
               ).then((reminder) {
                 if (reminder != null) {
                   setState(() {
@@ -166,7 +166,7 @@ class _DashboardPageState extends State<DashboardPage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => RecommendationsPage()),
+                MaterialPageRoute(builder: (context) => const RecommendationsPage()),
               );
             },
           ),
