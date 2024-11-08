@@ -4,7 +4,8 @@ import 'set_reminders_page.dart';
 import 'my_records_page.dart';
 import 'recommendations_page.dart';
 import 'add_records_page.dart';
-import 'reminders_page.dart'; // Import reminders page
+import 'reminders_page.dart';
+import 'login_screen.dart'; // Import login page
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -24,16 +25,14 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   void _checkForUpcomingReminders() {
-    // Check for the closest upcoming reminder
     if (_reminders.isNotEmpty) {
-      _reminders.sort((a, b) => a['dateTime'].compareTo(b['dateTime'])); // Sort reminders by date and time
-      final nextReminder = _reminders.first; // Get the closest upcoming reminder
-      _showReminderNotification(nextReminder); // Show notification
+      _reminders.sort((a, b) => a['dateTime'].compareTo(b['dateTime']));
+      final nextReminder = _reminders.first;
+      _showReminderNotification(nextReminder);
     }
   }
 
   void _showReminderNotification(Map<String, dynamic> reminder) {
-    // Show notification dialog
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -48,6 +47,16 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
         ],
       ),
+    );
+  }
+
+  void _logout() {
+    // Perform any logout logic, such as clearing session data
+    // Navigate back to the login screen
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
+      (route) => false,
     );
   }
 
@@ -141,8 +150,8 @@ class _DashboardPageState extends State<DashboardPage> {
               ).then((reminder) {
                 if (reminder != null) {
                   setState(() {
-                    _reminders.add(reminder); // Add new reminder
-                    _checkForUpcomingReminders(); // Check for upcoming reminders
+                    _reminders.add(reminder);
+                    _checkForUpcomingReminders();
                   });
                 }
               });
@@ -173,9 +182,7 @@ class _DashboardPageState extends State<DashboardPage> {
           ListTile(
             leading: const Icon(Icons.logout),
             title: const Text('Log Out'),
-            onTap: () {
-              // Add log out logic
-            },
+            onTap: _logout, // Call the _logout function
           ),
         ],
       ),
@@ -227,7 +234,6 @@ class _DashboardPageState extends State<DashboardPage> {
       );
     }
 
-    // Get the latest record
     var latestRecord = _records.last;
     double systolic = latestRecord['systolic'];
     double diastolic = latestRecord['diastolic'];
@@ -324,94 +330,46 @@ class _DashboardPageState extends State<DashboardPage> {
       double systolic = record['systolic'] ?? 0.0;
       double diastolic = record['diastolic'] ?? 0.0;
 
-      Color systolicColor = _getColorForPressure(systolic, diastolic);
-      Color diastolicColor = Colors.blue;
-
       return BarChartGroupData(
         x: index,
         barRods: [
           BarChartRodData(
             toY: systolic,
-            color: systolicColor,
-            width: 20,
+            color: Colors.blue,
+            width: 8,
           ),
           BarChartRodData(
             toY: diastolic,
-            color: diastolicColor,
-            width: 20,
+            color: Colors.red,
+            width: 8,
           ),
         ],
+        barsSpace: 4,
       );
     }).toList();
   }
 
   Widget _buildReminderSection() {
-    if (_reminders.isEmpty) {
-      return Card(
-        elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: const Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Text(
-                'No Reminders Set',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 8),
-              Text(
-                'You can set reminders for your medication.',
-                style: TextStyle(
-                  fontSize: 18,
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    return Card(
-      elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Upcoming Reminders',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            ..._reminders.map((reminder) {
+    return _reminders.isEmpty
+        ? const Text('No reminders set.')
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: _reminders.map((reminder) {
               return ListTile(
                 title: Text(reminder['title']),
                 subtitle: Text(reminder['dateTime'].toString()),
-                trailing: const Icon(Icons.alarm),
               );
             }).toList(),
-          ],
-        ),
-      ),
-    );
+          );
   }
 
   Widget _buildRecommendationSection() {
     return Card(
-      elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
+      elevation: 5,
+      color: Colors.orange[100],
       child: const Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
@@ -426,10 +384,7 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
             SizedBox(height: 8),
             Text(
-              'Stay hydrated, eat healthy, and keep monitoring your blood pressure!',
-              style: TextStyle(
-                fontSize: 18,
-              ),
+              'Try to maintain a healthy lifestyle by eating well and exercising regularly.',
             ),
           ],
         ),
@@ -440,28 +395,20 @@ class _DashboardPageState extends State<DashboardPage> {
   String _getStatusForPressure(double systolic, double diastolic) {
     if (systolic < 120 && diastolic < 80) {
       return 'Normal';
-    } else if (systolic <= 129 && diastolic < 80) {
+    } else if (systolic < 140 && diastolic < 90) {
       return 'Elevated';
-    } else if ((systolic >= 130 && systolic <= 139) || (diastolic >= 80 && diastolic <= 89)) {
-      return 'Hypertension Stage 1';
-    } else if (systolic >= 140 || diastolic >= 90) {
-      return 'Hypertension Stage 2';
     } else {
-      return 'Hypertensive Crisis';
+      return 'High Blood Pressure';
     }
   }
 
   Color _getColorForPressure(double systolic, double diastolic) {
     if (systolic < 120 && diastolic < 80) {
-      return Colors.green; // Normal
-    } else if (systolic <= 129 && diastolic < 80) {
-      return Colors.yellow; // Elevated
-    } else if ((systolic >= 130 && systolic <= 139) || (diastolic >= 80 && diastolic <= 89)) {
-      return Colors.orange; // Hypertension Stage 1
-    } else if (systolic >= 140 || diastolic >= 90) {
-      return Colors.red; // Hypertension Stage 2
+      return Colors.green;
+    } else if (systolic < 140 && diastolic < 90) {
+      return Colors.yellow;
     } else {
-      return Colors.redAccent; // Hypertensive Crisis
+      return Colors.red;
     }
   }
-} 
+}

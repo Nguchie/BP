@@ -1,8 +1,2 @@
-2024/10/28-12:17:51.603 28fc Reusing MANIFEST C:\PROGRA~1\KMSpico\temp\flutter_tools.62028c07\flutter_tools_chrome_device.315bd966\Default\shared_proto_db/MANIFEST-000001
-2024/10/28-12:17:51.604 28fc Recovering log #7
-2024/10/28-12:17:51.606 28fc Reusing old log C:\PROGRA~1\KMSpico\temp\flutter_tools.62028c07\flutter_tools_chrome_device.315bd966\Default\shared_proto_db/000007.log 
-2024/10/28-12:17:51.607 28fc Delete type=0 #3
-2024/10/28-12:17:51.607 28fc Delete type=0 #4
-2024/10/28-12:18:18.562 28fc Level-0 table #11: started
-2024/10/28-12:18:18.907 28fc Level-0 table #11: 133882 bytes OK
-2024/10/28-12:18:19.192 28fc Delete type=0 #7
+2024/10/30-15:23:37.943 4ef8 Creating DB C:\PROGRA~1\KMSpico\temp\flutter_tools.6965a3ff\flutter_tools_chrome_device.2faf7518\Default\shared_proto_db since it was missing.
+2024/10/30-15:23:38.601 4ef8 Reusing MANIFEST C:\PROGRA~1\KMSpico\temp\flutter_tools.6965a3ff\flutter_tools_chrome_device.2faf7518\Default\shared_proto_db/MANIFEST-000001

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'signup_screen.dart';
+import 'dashboard_page.dart'; // Make sure to import your DashboardPage
 import '../api_service.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,7 +12,6 @@ class _LoginPageState extends State<LoginPage> {
   final ApiService apiService = ApiService();
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
-  String? token;
 
   void _login() async {
     final token = await apiService.authenticate(
@@ -20,11 +20,11 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     if (token != null) {
-      setState(() {
-        this.token = token; // Store the token for display or use later
-      });
-      // Navigate to the home page or display the readings
-      // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage())); // Uncomment and define HomePage if needed
+      // Navigate to the dashboard page on successful login
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => DashboardPage()), // Redirect to DashboardPage
+      );
     } else {
       // Handle error (e.g., show a snackbar)
       ScaffoldMessenger.of(context).showSnackBar(
@@ -64,11 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                 );
               },
             ),
-            // Display connection status
-            if (token != null)
-              Text("Connected! Token: $token")
-            else
-              Text("Not connected."),
+            // Removed the connection status display
           ],
         ),
       ),

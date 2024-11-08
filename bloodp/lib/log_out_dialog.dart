@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:bloodp/api_service.dart'; // Update with your actual import
+import 'login_screen.dart'; // Update with your actual import
 
 class LogOutDialog {
   static Future<void> showLogOutDialog(BuildContext context) async {
+    final apiService = ApiService();
+
     return showDialog<void>(
       context: context,
       barrierDismissible: true,
@@ -18,9 +22,15 @@ class LogOutDialog {
             ),
             TextButton(
               child: const Text('Log Out'),
-              onPressed: () {
-                // Add log out logic here
-                Navigator.of(context).pop();
+              onPressed: () async {
+                // Call logout method from ApiService
+                await apiService.logout();
+
+                // Navigate back to login screen
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  (route) => false,
+                );
               },
             ),
           ],

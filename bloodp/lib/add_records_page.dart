@@ -11,26 +11,27 @@ class _AddRecordsPageState extends State<AddRecordsPage> {
   final TextEditingController _systolicController = TextEditingController();
   final TextEditingController _diastolicController = TextEditingController();
 
-  void _saveRecord() {
-    final systolic = int.tryParse(_systolicController.text);
-    final diastolic = int.tryParse(_diastolicController.text);
+ void _saveRecord() {
+  final systolic = int.tryParse(_systolicController.text);
+  final diastolic = int.tryParse(_diastolicController.text);
 
-    if (systolic != null && diastolic != null) {
-      // Here you can send the data back to the dashboard or save it
-      Navigator.pop(context, {
-        'systolic': systolic,
-        'diastolic': diastolic,
-        'date': DateTime.now(),
-      });
-    } else {
-      // Show an error message
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please enter valid numbers.'),
-        ),
-      );
-    }
+  if (systolic != null && diastolic != null) {
+    // Convert integers to doubles if needed
+    Navigator.pop(context, {
+      'systolic': systolic.toDouble(),  // Convert to double
+      'diastolic': diastolic.toDouble(), // Convert to double
+      'date': DateTime.now(),
+    });
+  } else {
+    // Show an error message
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Please enter valid numbers.'),
+      ),
+    );
   }
+}
+
 
   @override
   Widget build(BuildContext context) {

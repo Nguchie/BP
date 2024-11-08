@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
 class ApiService {
-  final String baseUrl = 'http://127.0.0.1:8000'; // Replace with your actual base URL
+  final String baseUrl = 'http://192.168.131.74'; // Replace with your actual base URL
 
   /// Sign up a new user
   Future<bool> signup(String username, String password, bool isPatient, bool isDoctor) async {
