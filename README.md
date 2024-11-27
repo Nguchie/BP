@@ -1,17 +1,22 @@
 Digital Blood Pressure Management System
+
 CODEBASE IS IN MASTER BRANCH
+
 Overview
 The Digital Blood Pressure Management System is a cross-platform healthcare solution designed to help patients and doctors efficiently manage blood pressure data. The application integrates a robust Django REST Framework backend with an intuitive Flutter frontend, offering personalized insights powered by Gemini 1.5 Flash AI.
 
 Features
+
 For Patients
 🌟 Account Management: Register and log in to a secure account.
 📊 Record Readings: Log systolic and diastolic blood pressure values.
 💡 Personalized Recommendations: Get AI-generated health suggestions based on your latest readings.
+
 For Doctors
 👩‍⚕️ Access Dashboard: Securely log in to view patient records.
 📂 Filter and Monitor: Search patients by username and track blood pressure trends.
 🔍 Analyze Data: Use insights to provide timely medical advice.
+
 Tech Stack
 Backend
 🐍 Django: RESTful API for seamless data exchange.
@@ -20,6 +25,7 @@ Backend
 Frontend
 🎨 Flutter: Modern UI framework for a responsive and interactive experience.
 🌐 API Integration: Communicates with the backend via RESTful APIs.
+
 How It Works
 1. Patient Workflow
 Register or log in via the app.
