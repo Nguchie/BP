@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'signup_screen.dart';
-import 'dashboard_page.dart'; // Make sure to import your DashboardPage
+import 'dashboard_page.dart'; // Patient Dashboard Page
+import 'patient_list_page.dart'; // Doctor's Patients List Page
 import '../api_service.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,24 +15,41 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
 
   void _login() async {
-    final token = await apiService.authenticate(
-      usernameController.text,
-      passwordController.text,
-    );
+  final token = await apiService.authenticate(
+    usernameController.text,
+    passwordController.text,
+  );
 
-    if (token != null) {
-      // Navigate to the dashboard page on successful login
+  if (token != null) {
+    // Fetch the user role
+    final userRole = await apiService.getUserRole();
+
+    if (userRole == 'doctor') {
+      // Navigate to the Patients List Page for doctors
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => DashboardPage()), // Redirect to DashboardPage
+        MaterialPageRoute(builder: (context) => PatientListPage(token)),
+      );
+    } else if (userRole == 'patient') {
+      // Navigate to the Dashboard Page for patients
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => DashboardPage()),
       );
     } else {
-      // Handle error (e.g., show a snackbar)
+      // Handle unknown role (optional)
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login failed')),
+        SnackBar(content: Text('Unknown role')),
       );
     }
+  } else {
+    // Handle login failure
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Login failed')),
+    );
   }
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +82,6 @@ class _LoginPageState extends State<LoginPage> {
                 );
               },
             ),
-            // Removed the connection status display
           ],
         ),
       ),
